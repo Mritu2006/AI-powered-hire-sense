@@ -1,4 +1,4 @@
-# 🤖 HireSense - AI-Powered Job Portal
+#  HireSense - AI-Powered Job Portal
 
 **HireSense** is a full-stack, AI-powered job portal developed using **Java, JSP, Servlets, JDBC, and MySQL**.
 
@@ -8,7 +8,7 @@ The application also incorporates **AI-powered features** to assist with resume 
 
 ---
 
-## 📌 Overview
+## Overview
 
 Finding the right job and hiring the right candidate can be time-consuming. HireSense aims to simplify this process by providing an intelligent platform for both sides of the recruitment process.
 
@@ -39,9 +39,9 @@ Finding the right job and hiring the right candidate can be time-consuming. Hire
 
 ---
 
-# ✨ Features
+# Features
 
-## 🔐 Authentication & Authorization
+## Authentication & Authorization
 
 * User registration
 * User login
@@ -50,7 +50,7 @@ Finding the right job and hiring the right candidate can be time-consuming. Hire
 * Role-based access
 * Separate recruiter and job-seeker dashboards
 
-## 👨‍💻 Job Seeker Module
+## Job Seeker Module
 
 * Job seeker registration
 * Profile management
@@ -64,7 +64,7 @@ Finding the right job and hiring the right candidate can be time-consuming. Hire
 * Application tracking
 * AI-powered job recommendations
 
-## 🏢 Recruiter Module
+##  Recruiter Module
 
 * Recruiter registration
 * Company profile management
@@ -77,7 +77,7 @@ Finding the right job and hiring the right candidate can be time-consuming. Hire
 * Resume viewing
 * Application management
 
-## 🤖 AI-Powered Features
+##  AI-Powered Features
 
 HireSense uses AI to assist users with:
 
@@ -141,7 +141,7 @@ HireSense uses AI to assist users with:
 
 ---
 
-# 🏗️ Architecture
+#  Architecture
 
 HireSense follows a layered architecture based on the **MVC pattern**.
 
@@ -192,7 +192,7 @@ HireSense follows a layered architecture based on the **MVC pattern**.
 
 ---
 
-# 🧩 MVC Architecture
+# MVC Architecture
 
 The application follows the **Model-View-Controller (MVC)** design pattern.
 
@@ -243,7 +243,7 @@ RecruiterServlet
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 HireSense/
@@ -505,7 +505,7 @@ The exact URL may vary depending on the configured Tomcat context path.
 
 ---
 
-# 🔄 Job Seeker Workflow
+#  Job Seeker Workflow
 
 ```text
               Register
@@ -531,7 +531,7 @@ The exact URL may vary depending on the configured Tomcat context path.
 
 ---
 
-# 🔄 Recruiter Workflow
+#  Recruiter Workflow
 
 ```text
               Register
