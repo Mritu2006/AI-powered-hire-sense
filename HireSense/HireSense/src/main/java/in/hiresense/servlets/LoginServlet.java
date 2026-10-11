@@ -17,11 +17,21 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+        if (email == null || email.trim().isEmpty() || password == null || password.isEmpty()) {
+            req.setAttribute("error", "Email and password are required.");
+            req.getRequestDispatcher("login.jsp").forward(req, res);
+            return;
+        }
+        email = email.trim();
 
         try {
             UserPojo user = UserDAO.getUserByEmail(email);
-            if (user != null && user.getPassword().equals(password) && "active".equals(user.getStatus())) {
-                HttpSession session = req.getSession();
+            if (user != null && user.getPassword() != null && user.getPassword().equals(password) && "active".equals(user.getStatus())) {
+                HttpSession existingSession = req.getSession(false);
+                if (existingSession != null) {
+                    existingSession.invalidate();
+                }
+                HttpSession session = req.getSession(true);
                 session.setAttribute("userId", user.getId());
                 session.setAttribute("userName", user.getName());
                 session.setAttribute("userRole", user.getRole());
