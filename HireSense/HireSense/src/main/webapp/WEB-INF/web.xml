@@ -2,23 +2,8 @@
 <web-app>
 	<listener>
 		<listener-class>in.hiresense.dbutils.AppInitializer</listener-class>
-	</listener>
-
-	<!-- Database credentials -->
-	<context-param>
-		<param-name>url</param-name>
-		<param-value>jdbc:mysql://localhost:3306/hiresense</param-value>
-	</context-param>
-	<context-param>
-		<param-name>username</param-name>
-		<param-value>root</param-value>
-	</context-param>
-	<context-param>
-		<param-name>password</param-name>
-		<param-value>Root@23769</param-value>
-	</context-param>
-
-	<!-- Application name -->
+	</listener> 
+<!-- Application name -->
 	<context-param>
 		<param-name>appName</param-name>
 		<param-value>HireSense</param-value>
