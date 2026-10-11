@@ -785,3 +785,27 @@ This project is licensed under the **MIT License**.
 **AI-Powered Job Portal**
 
 > **Connecting Talent with Opportunity through Intelligent Technology.**
+
+
+## Local configuration
+
+**Never commit API keys, email app passwords, or database passwords.** Copy `.env.example` as a reference for the variables that must be configured in the environment used to run Tomcat. The Java application reads environment variables directly; a `.env` file is not automatically loaded by the JVM.
+
+Required environment variables:
+
+- `HIRESENSE_DB_URL` — JDBC URL for the HireSense database.
+- `HIRESENSE_DB_USERNAME` and `HIRESENSE_DB_PASSWORD` — use a dedicated MySQL application account with only the permissions the app needs; avoid the MySQL `root` account.
+- `AFFINDA_API_KEY` — a valid Affinda API key.
+- `SMTP_EMAIL` and `SMTP_PASSWORD` — sender account and mail app password.
+
+Configure these variables in your operating system, IDE run configuration, or deployment secret manager before starting Tomcat. The example values are placeholders and will not connect to external services.
+
+### Security note
+
+Credentials that were previously committed must be considered exposed. Revoke/rotate the Affinda key and email app password, and change any database password that was committed. Removing a secret from the latest version does not remove it from Git history. Do not use real candidate resumes or production data while validating a local setup.
+
+### Current limitations
+
+- Login password handling still needs a coordinated migration to salted password hashes and a database migration for existing accounts.
+- Resume upload validation, storage outside the public web root, and size limits should be completed before deploying to production.
+- Run the project in your IDE/Tomcat environment and verify registration, login, email delivery, database access, and resume analysis after configuring the environment.

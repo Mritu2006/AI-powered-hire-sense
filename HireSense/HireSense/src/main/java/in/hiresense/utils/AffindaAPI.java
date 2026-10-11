@@ -20,7 +20,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AffindaAPI {
-    private static final String API_KEY = "aff_f1f814bbb0bfea6cfe31ff1aed91e7fa5ff98a66";
+    private static String getApiKey() throws IOException {
+        String apiKey = System.getenv("AFFINDA_API_KEY");
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            throw new IOException("AFFINDA_API_KEY environment variable is not configured");
+        }
+        return apiKey;
+    }
 
     public static String analyzeResume(File resumeFile) throws IOException {
         String boundary = "----WebKitFormBoundary" + UUID.randomUUID();
@@ -29,7 +35,7 @@ public class AffindaAPI {
         URL url = new URL("https://api.affinda.com/v2/resumes");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
-        connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
+        connection.setRequestProperty("Authorization", "Bearer " + getApiKey());
         connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
         connection.setDoOutput(true);
 
