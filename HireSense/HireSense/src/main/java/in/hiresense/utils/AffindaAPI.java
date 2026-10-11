@@ -20,7 +20,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AffindaAPI {
-    private static String getApiKey() throws IOException {\n        String apiKey = System.getenv("AFFINDA_API_KEY");\n        if (apiKey == null || apiKey.trim().isEmpty()) {\n            throw new IOException("AFFINDA_API_KEY environment variable is not configured");\n        }\n        return apiKey;\n    }
+    private static String getApiKey() throws IOException {
+        String apiKey = System.getenv("AFFINDA_API_KEY");
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            throw new IOException("AFFINDA_API_KEY environment variable is not configured");
+        }
+        return apiKey;
+    }
 
     public static String analyzeResume(File resumeFile) throws IOException {
         String boundary = "----WebKitFormBoundary" + UUID.randomUUID();
