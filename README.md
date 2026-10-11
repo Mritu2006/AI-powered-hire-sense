@@ -243,87 +243,33 @@ RecruiterServlet
 
 ---
 
-#  Project Structure
+# Project Structure
+
+The application lives in the `HireSense/` project directory. Java source and web resources are kept in one source tree; compiled classes are generated locally and are not committed.
 
 ```text
-HireSense/
-│
-├── src/
-│   └── main/
-│       │
-│       ├── java/
-│       │   └── com/
-│       │       └── hiresense/
-│       │
-│       │           ├── controller/
-│       │           │   ├── LoginServlet.java
-│       │           │   ├── RegisterServlet.java
-│       │           │   ├── LogoutServlet.java
-│       │           │   ├── JobServlet.java
-│       │           │   ├── ApplicationServlet.java
-│       │           │   ├── ResumeServlet.java
-│       │           │   └── RecruiterServlet.java
-│       │           │
-│       │           ├── model/
-│       │           │   ├── User.java
-│       │           │   ├── Job.java
-│       │           │   ├── Resume.java
-│       │           │   ├── Application.java
-│       │           │   ├── Company.java
-│       │           │   └── Skill.java
-│       │           │
-│       │           ├── dao/
-│       │           │   ├── UserDAO.java
-│       │           │   ├── JobDAO.java
-│       │           │   ├── ResumeDAO.java
-│       │           │   └── ApplicationDAO.java
-│       │           │
-│       │           ├── service/
-│       │           │   ├── UserService.java
-│       │           │   ├── JobService.java
-│       │           │   └── AIService.java
-│       │           │
-│       │           └── util/
-│       │               └── DBConnection.java
-│       │
-│       └── webapp/
-│           │
-│           ├── css/
-│           ├── js/
-│           ├── images/
-│           │
-│           ├── index.jsp
-│           ├── login.jsp
-│           ├── register.jsp
-│           ├── jobs.jsp
-│           ├── job-details.jsp
-│           ├── profile.jsp
-│           ├── resume.jsp
-│           │
-│           ├── seeker/
-│           │   ├── dashboard.jsp
-│           │   ├── applications.jsp
-│           │   └── recommendations.jsp
-│           │
-│           └── recruiter/
-│               ├── dashboard.jsp
-│               ├── post-job.jsp
-│               ├── manage-jobs.jsp
-│               └── applicants.jsp
-│
-├── WEB-INF/
-│   └── web.xml
-│
-├── lib/
-│   └── mysql-connector-j.jar
-│
-├── database/
-│   └── hiresense.sql
-│
+AI-powered-hire-sense/
+├── .env.example
+├── .gitignore
 ├── README.md
-└── .gitignore
+└── HireSense/
+    └── src/
+        └── main/
+            ├── java/
+            │   └── in/hiresense/
+            │       ├── dao/        # Database access
+            │       ├── dbutils/    # Database initialization and connection
+            │       ├── models/     # Data/model classes
+            │       ├── servlets/   # HTTP request handlers
+            │       └── utils/      # Mail and resume-analysis integrations
+            └── webapp/
+                ├── WEB-INF/web.xml
+                ├── includes/
+                ├── css/
+                └── *.jsp
 ```
 
+`HireSense/src/main/java` contains the Java source of truth. Do not edit generated `.class` files; rebuild the application in your IDE or build tooling after source changes.
 ---
 
 # 🗄️ Database Design
@@ -398,13 +344,15 @@ mysql --version
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/hiresense.git
+git clone https://github.com/Mritu2006/AI-powered-hire-sense.git
 ```
 
 Navigate to the project:
 
+> **Project layout:** Open/import the `HireSense/` directory in your Java IDE. The repository currently has no Maven `pom.xml` or Gradle build file, so dependency/build configuration is managed by the existing IDE/Tomcat project setup. The app uses `jakarta.*` APIs, so use a compatible Jakarta-based Tomcat version (Tomcat 10+), not Tomcat 9.
+
 ```bash
-cd hiresense
+cd AI-powered-hire-sense/HireSense
 ```
 
 ---
@@ -724,7 +672,7 @@ Contributions are welcome.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/hiresense.git
+git clone https://github.com/Mritu2006/AI-powered-hire-sense.git
 ```
 
 ### Create a branch
