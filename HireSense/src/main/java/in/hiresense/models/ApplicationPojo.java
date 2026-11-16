@@ -29,7 +29,7 @@ public class ApplicationPojo {
     public void setUserId(int userId) { this.userId = userId; }
 
     public int getJobId() { return jobId; }
-    public void setJobId(int jobId) { this.jobId = jobId; }
+    public void  setJobId(int jobId) { this.jobId = jobId; }
 
     public String getResumePath() { return resumePath; }
     public void setResumePath(String resumePath) { this.resumePath = resumePath; }
